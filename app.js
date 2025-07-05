@@ -11,7 +11,7 @@ const app = express();
 
 app.use(cors()); 
 app.use(bodyParser.json());
-app.use('/adoptionStatus-Request-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/adoptionStatus-request-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/', routes);
 
 module.exports = app;
