@@ -20,44 +20,7 @@ paths:
     patch:
       summary: Update adoption request status
       description: >
-        Updates the status of a specific adoption request identified by request ID. This endpoint
-        enables administrators and adoption coordinators to process adoption applications by
-        updating their status from pending to either approved or rejected. The service provides
-        comprehensive validation and maintains request processing history.
         
-        **Request Status Management Features:**
-        - Update adoption request status by request ID
-        - Support for approval and rejection workflows
-        - Comprehensive request validation and verification
-        - Automatic request persistence and history tracking
-        - Administrative decision-making support
-        
-        **Status Types:**
-        - **pending**: Initial status when request is submitted (default)
-        - **approved**: Request has been approved by administrators
-        - **rejected**: Request has been rejected by administrators
-        
-        **Status Workflow:**
-        - pending → approved (Application approved for adoption)
-        - pending → rejected (Application rejected/declined)
-        
-        **Administrative Use Cases:**
-        - Process adoption applications efficiently
-        - Make approval/rejection decisions based on criteria
-        - Maintain comprehensive request processing records
-        - Coordinate adoption workflows with other services
-        
-        **Validation Rules:**
-        - Request ID must be valid MongoDB ObjectId format
-        - Status must be either "approved" or "rejected"
-        - Request must exist in database before update
-        - Comprehensive error handling for all scenarios
-        
-        **Integration Support:**
-        - Works with user management and pet services
-        - Triggers notifications for status changes
-        - Supports administrative dashboard integration
-        - Provides data for adoption analytics and reporting
       tags:
         - Adoption Request Management
       parameters:

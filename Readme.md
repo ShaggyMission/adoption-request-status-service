@@ -112,24 +112,6 @@ pending → approved   (Application approved)
 pending → rejected   (Application rejected)
 ```
 
-### Update Features
-- **Status Validation**: Only allows approved/rejected status updates
-- **Request Verification**: Validates request existence before update
-- **Automatic Persistence**: Saves changes to database automatically
-- **Error Handling**: Comprehensive error responses for all scenarios
-- **ID Validation**: Validates MongoDB ObjectId format
-
-## 🌐 Service Integration
-
-This microservice integrates seamlessly with other Shaggy Mission platform components:
-
-- **User Management Service**: Links requests to user profiles
-- **Pet Management Service**: Associates requests with specific pets
-- **Notification System**: Triggers alerts when requests are processed
-- **Email Service**: Sends approval/rejection notifications to users
-- **Administrative Dashboard**: Provides request management interface
-- **Reporting Services**: Tracks adoption request metrics and success rates
-
 ## 🔒 Data Security & Validation
 
 - **Request ID Validation**: Validates MongoDB ObjectId format
@@ -215,32 +197,6 @@ curl -X PATCH http://localhost:3017/adoption-requests/64f8b2a1c3d4e5f6a7b8c9d4 \
 # Expected response: 200 OK with updated request object
 ```
 
-## 🔄 Adoption Request Workflows
-
-### Request Approval Process
-1. **Request Submitted**: User submits adoption request (status: "pending")
-2. **Administrator Review**: Admin reviews user profile and request details
-3. **Background Check**: Verify user's suitability for pet adoption
-4. **Decision Making**: Admin approves or rejects based on criteria
-5. **Status Update**: Update request status to "approved" or "rejected"
-6. **Notification**: User receives notification of decision
-
-### Request Review Criteria
-- **User Profile**: Complete and verified user information
-- **Pet Compatibility**: Match between user preferences and pet needs
-- **Living Situation**: Appropriate environment for the specific pet
-- **Experience**: User's experience with pets and specific breeds
-- **References**: Contact references and previous adoption history
-- **Home Visit**: Successful home visit if required
-
-### Administrative Decision Process
-1. **Request Queue**: Review pending requests in order of submission
-2. **User Evaluation**: Assess user's adoption application thoroughly
-3. **Pet Matching**: Ensure compatibility between user and pet
-4. **Decision Documentation**: Record reasoning for approval/rejection
-5. **Status Update**: Update request status in system
-6. **Follow-up**: Schedule next steps for approved requests
-
 ## ⚡ Performance Considerations
 
 ### Database Optimization
@@ -279,41 +235,6 @@ curl -X PATCH http://localhost:3017/adoption-requests/64f8b2a1c3d4e5f6a7b8c9d4 \
 - **Decision Documentation**: Record reasons for approval/rejection
 - **User Follow-up**: Contact users about approved requests
 - **Performance Tracking**: Monitor request processing efficiency
-
-### Integration Scenarios
-- **Notification Service**: Trigger notifications for status changes
-- **User Portal**: Display request status in user dashboard
-- **Pet Management**: Update pet availability based on approvals
-- **Reporting System**: Generate adoption request analytics
-
-## 🔧 Error Handling
-
-### Validation Errors
-- **Invalid Status**: Returns 400 for non-approved/rejected status values
-- **Missing Request**: Returns 404 when request ID doesn't exist
-- **Invalid Request ID**: Returns 400 for malformed MongoDB ObjectId
-- **Missing Data**: Returns 400 for missing required fields
-
-### System Errors
-- **Database Connection**: Returns 500 with server error message
-- **Update Failure**: Returns 500 when database update fails
-- **Server Errors**: Returns 500 with appropriate error messages
-- **Timeout Handling**: Graceful handling of database timeouts
-
-## 📋 Business Rules
-
-### Status Update Rules
-- **Pending to Approved**: Valid transition for accepted requests
-- **Pending to Rejected**: Valid transition for declined requests
-- **No Reverse Transitions**: Approved/rejected requests cannot be changed
-- **Administrator Only**: Only administrators can update request statuses
-
-### Request Validation
-- **User Verification**: Ensure user exists and is verified
-- **Pet Availability**: Verify pet is still available for adoption
-- **Request Authenticity**: Validate request belongs to specified user
-- **Duplicate Prevention**: Prevent duplicate requests for same pet
-
 ---
 
 <div align="center">
