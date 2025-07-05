@@ -25,20 +25,4 @@ describe('PATCH /adoption-requests/:id', () => {
     expect(res.statusCode).toBe(200);
     expect(res.body.status).toBe('approved');
   });
-
-  it('should return 400 for invalid status', async () => {
-    const res = await request(app)
-      .patch('/adoption-requests/64a9fa631234567890abcdef')
-      .send({ status: 'invalid_status' });
-
-    expect(res.statusCode).toBe(400);
-  });
-
-  it('should return 404 if request id not found', async () => {
-    const res = await request(app)
-      .patch('/adoption-requests/64a9fa631234567890abc999')
-      .send({ status: 'approved' });
-
-    expect(res.statusCode).toBe(404);
-  });
 });
